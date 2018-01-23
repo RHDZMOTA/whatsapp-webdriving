@@ -1,0 +1,24 @@
+{
+  "First User": [
+    {
+      "type": "text",
+      "content": "This is a sample text message."
+    },
+    {
+      "type": "image",
+      "path": "/image/path/file_1.png",
+      "caption": "Image caption."
+    }
+  ],
+  "Second User":[
+    {
+      "type": "datetime-text",
+      "content": "%(datetime)s - This is a sample text message with timestamp."
+    },
+    {
+      "type": "image",
+      "path": "/image/path/file_2.png",
+      "caption": "Image caption"
+    }
+  ]
+}
