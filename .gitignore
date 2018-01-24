@@ -171,3 +171,4 @@ appengine-generated/
 *.json
 data/
 logs/
+*.png
