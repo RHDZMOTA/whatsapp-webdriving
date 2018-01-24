@@ -3,7 +3,7 @@ import time
 
 from datetime import datetime
 
-MESSAGES_FILES = "resources/user-message/messages.json"
+MESSAGES_FILES = "resources/user-messages/messages.json"
 SLEEP_TIME = 3
 
 
