@@ -1,10 +1,8 @@
-import json
 import time
 
 from datetime import datetime
 
-MESSAGES_FILES = "resources/user-messages/messages.json"
-SLEEP_TIME = 3
+from settings import SLEEP_TIME
 
 
 def send_message(whatsapp_service, message):
@@ -34,15 +32,3 @@ def send_media_message(whatsapp_service, message):
 def send_custom_message(whatsapp_service, message, variables):
     whatsapp_service.send_message_text(
         content=message.get("content") % variables)
-
-
-class Messages(object):
-
-    def __init__(self):
-        self.messages = json.loads(open(MESSAGES_FILES, "r").read())
-
-    def get_users(self):
-        return list(self.messages.keys())
-
-    def get_messages(self, user):
-        return self.messages.get(user)
