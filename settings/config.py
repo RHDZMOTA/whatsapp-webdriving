@@ -13,6 +13,10 @@ DRIVERS_FOLDER = os.environ.get("DRIVERS_FOLDER")
 IMG_FOLDER = os.environ.get("IMG_FOLDER")
 MESSAGES_FILE = os.environ.get("MESSAGES_FILE")
 LOG_FILE = os.environ.get("LOG_FILE")
+WHATSAPP_WEBPAGE = os.environ.get("WHATSAPP_WEBPAGE")
+
+# Constants
+SLEEP_TIME = 3
 
 # Project absolute path
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
