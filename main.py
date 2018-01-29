@@ -19,7 +19,9 @@ def main():
     whatsapp_service.initialize_session()
 
     message_service = MessagesFile(logger=logger)
-    message_service.send_messages(whatsapp_service=whatsapp_service)
+    message_service.set_whatsapp_service(whatsapp_service=whatsapp_service)
+    message_service.load_messages()
+    message_service.send_messages()
 
     whatsapp_service.close()
 
