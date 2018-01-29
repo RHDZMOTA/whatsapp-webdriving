@@ -36,12 +36,14 @@ class WhatsApp(object):
         self.driver.find_element_by_id("input-chatlist-search").send_keys(user_name)
         time.sleep(SLEEP_TIME)
         self.driver.find_element_by_xpath("//div[@class='chat-avatar']").click()
+        time.sleep(SLEEP_TIME)
 
     def send_message_text(self, content):
         self.logger.info("WhatsApp: method call send_message_text with content: %s" % content)
         self.driver.find_element_by_xpath("//div[@class='pluggable-input-body copyable-text selectable-text']") \
             .send_keys(content)
         self.driver.find_element_by_xpath("//button[@class='compose-btn-send']").click()
+        time.sleep(SLEEP_TIME)
 
     def send_message_media(self, media_path, caption=""):
         self.logger.info("WhatsApp: method call send_message_media with media_path %s and caption %s" % (media_path, caption))
@@ -56,6 +58,7 @@ class WhatsApp(object):
             time.sleep(SLEEP_TIME)
 
         self.driver.find_element_by_xpath("//span[@data-icon='send-light']").click()
+        time.sleep(SLEEP_TIME)
 
     def close(self):
         self.driver.close()
