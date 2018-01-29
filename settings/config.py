@@ -49,3 +49,20 @@ class LogConf:
         logger = logging.getLogger(__name__)
         logger.addHandler(logging.StreamHandler())
         return logger
+
+
+class WhatsAppConfig:
+
+    QR_ALT_STRING = "Scan me!"
+
+    class XPATH:
+        CHAT_NEW = "//div[@title='New chat']"
+        CHAT_AVATAR = "//div[@class='chat-avatar']"
+        BUTTON_TEXT_SEND = "//button[@class='compose-btn-send']"
+        BUTTON_ATTACH = "//div[@title='Attach']"
+        BUTTON_FILE_INPUT = "//input[@type='file']"
+        BUTTON_MEDIA_SEND = "//span[@data-icon='send-light']"
+        INPUT_MESSAGE_BODY = "//div[@class='pluggable-input-body copyable-text selectable-text']"
+
+    class ElementID:
+        CHAT_LIST = "input-chatlist-search"
