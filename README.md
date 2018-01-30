@@ -1,7 +1,7 @@
 # Whatsapp Web-Driving
 
 Whatsapp driving for message automation using **python 3.6**.
-For **linux** and (soon) **mac os**.
+For **linux** and **mac os**.
 
 ## Requirements
 

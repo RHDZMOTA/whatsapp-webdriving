@@ -14,6 +14,8 @@ IMG_FOLDER = os.environ.get("IMG_FOLDER")
 MESSAGES_FILE = os.environ.get("MESSAGES_FILE")
 LOG_FILE = os.environ.get("LOG_FILE")
 WHATSAPP_WEBPAGE = os.environ.get("WHATSAPP_WEBPAGE")
+LOGGING_MESSAGE_FORMAT = os.environ.get("LOGGING_MESSAGE_FORMAT")
+LOGGING_DATETIME_FORMAT = os.environ.get("LOGGING_DATETIME_FORMAT")
 
 # Constants
 SLEEP_TIME = 3
@@ -40,12 +42,14 @@ class FileConf:
 
 class LogConf:
     path = FileConf.FileNames.logger
-    format = '%(asctime)s %(levelname)s:%(message)s'
-    datefmt = '%m/%d/%Y %I:%M:%S %p'
 
     @staticmethod
     def create(logging):
-        logging.basicConfig(format=LogConf.format, filename=LogConf.path, datefmt=LogConf.datefmt, level=logging.DEBUG)
+        logging.basicConfig(
+            format=LOGGING_MESSAGE_FORMAT,
+            filename=LogConf.path,
+            datefmt=LOGGING_DATETIME_FORMAT,
+            level=logging.DEBUG)
         logger = logging.getLogger(__name__)
         logger.addHandler(logging.StreamHandler())
         return logger
