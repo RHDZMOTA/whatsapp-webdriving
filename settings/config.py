@@ -8,10 +8,9 @@ load_dotenv(dotenv_path)
 
 # Read .env variables
 RESOURCES_FOLDER = os.environ.get("RESOURCES_FOLDER")
-USER_MESSAGES_FOLDER = os.environ.get("USER_MESSAGES_FOLDER")
 DRIVERS_FOLDER = os.environ.get("DRIVERS_FOLDER")
-IMG_FOLDER_DEFAULT = os.environ.get("IMG_FOLDER_DEFAULT")
-IMG_ABS_PATH = os.environ.get("IMG_FOLDER")
+USER_MESSAGES_FOLDER = os.environ.get("USER_MESSAGES_FOLDER")
+IMG_PATH = os.environ.get("IMG_PATH")
 MESSAGES_FILE = os.environ.get("MESSAGES_FILE")
 LOG_FILE = os.environ.get("LOG_FILE")
 WHATSAPP_WEBPAGE = os.environ.get("WHATSAPP_WEBPAGE")
@@ -35,7 +34,7 @@ class FileConf:
     class Paths:
         resources = RESOURCES_PATH
         user_messages = USER_MESSAGES_PATH
-        img = join(USER_MESSAGES_PATH, IMG_FOLDER_DEFAULT) if not IMG_ABS_PATH else IMG_ABS_PATH
+        img = IMG_PATH if IMG_PATH[0] == "/" else join(USER_MESSAGES_PATH, IMG_PATH)
 
     class FileNames:
         logger = join(PROJECT_DIR, LOG_FILE)
