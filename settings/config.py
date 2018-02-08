@@ -10,7 +10,8 @@ load_dotenv(dotenv_path)
 RESOURCES_FOLDER = os.environ.get("RESOURCES_FOLDER")
 USER_MESSAGES_FOLDER = os.environ.get("USER_MESSAGES_FOLDER")
 DRIVERS_FOLDER = os.environ.get("DRIVERS_FOLDER")
-IMG_FOLDER = os.environ.get("IMG_FOLDER")
+IMG_FOLDER_DEFAULT = os.environ.get("IMG_FOLDER_DEFAULT")
+IMG_ABS_PATH = os.environ.get("IMG_FOLDER")
 MESSAGES_FILE = os.environ.get("MESSAGES_FILE")
 LOG_FILE = os.environ.get("LOG_FILE")
 WHATSAPP_WEBPAGE = os.environ.get("WHATSAPP_WEBPAGE")
@@ -26,6 +27,7 @@ PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)
 # Create complete path
 RESOURCES_PATH = join(PROJECT_DIR, RESOURCES_FOLDER)
 USER_MESSAGES_PATH = join(RESOURCES_PATH, USER_MESSAGES_FOLDER)
+DRIVER_PATH = join(RESOURCES_PATH, DRIVERS_FOLDER, "{sys_platform}")
 
 
 class FileConf:
@@ -33,11 +35,12 @@ class FileConf:
     class Paths:
         resources = RESOURCES_PATH
         user_messages = USER_MESSAGES_PATH
-        img = join(USER_MESSAGES_PATH, IMG_FOLDER)
+        img = join(USER_MESSAGES_PATH, IMG_FOLDER_DEFAULT) if not IMG_ABS_PATH else IMG_ABS_PATH
 
     class FileNames:
         logger = join(PROJECT_DIR, LOG_FILE)
         messages = join(USER_MESSAGES_PATH, MESSAGES_FILE)
+        chrome_driver = join(DRIVER_PATH, "chromedriver")
 
 
 class LogConf:
