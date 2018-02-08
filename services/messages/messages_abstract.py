@@ -1,7 +1,10 @@
+import os
+
 from abc import ABCMeta, abstractmethod
 from datetime import datetime
 
 from services.whatsapp import WhatsApp
+from settings import FileConf
 
 
 class MessagesAbstract:
@@ -44,7 +47,7 @@ class MessagesAbstract:
 
     def send_media_message(self, message: dict):
         self._whatsapp_service.send_message_media(
-            media_path=message.get("path"),
+            media_path=os.path.join(FileConf.Paths.img, message.get("file_name")),
             caption=message.get("caption")
         )
 
