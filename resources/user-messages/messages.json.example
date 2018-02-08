@@ -6,7 +6,7 @@
     },
     {
       "type": "image",
-      "path": "/image/path/file_1.png",
+      "file_name": "image_file_1.png",
       "caption": "Image caption."
     }
   ],
@@ -17,7 +17,7 @@
     },
     {
       "type": "image",
-      "path": "/image/path/file_2.png",
+      "file_name": "image_file_2.png",
       "caption": "Image caption"
     }
   ]
