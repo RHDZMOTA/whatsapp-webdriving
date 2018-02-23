@@ -63,8 +63,8 @@ class WhatsAppConfig:
 
     class XPATH:
         CHAT_NEW = "//div[@title='New chat']"
-        CHAT_AVATAR = "//div[@class='chat-avatar']"
-        BUTTON_TEXT_SEND = "//button[@class='compose-btn-send']"
+        CHAT_AVATAR = "//span[@title='%s']"
+        BUTTON_TEXT_SEND = "//span[@data-icon='send']"
         BUTTON_ATTACH = "//div[@title='Attach']"
         BUTTON_FILE_INPUT = "//input[@type='file']"
         BUTTON_MEDIA_SEND = "//span[@data-icon='send-light']"

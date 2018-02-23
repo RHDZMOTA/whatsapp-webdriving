@@ -36,13 +36,22 @@ class WhatsApp(object):
         self.driver.find_element_by_xpath(WhatsAppConfig.XPATH.CHAT_NEW).click()
         self.driver.find_element_by_id(WhatsAppConfig.ElementID.CHAT_LIST).send_keys(user_name)
         time.sleep(SLEEP_TIME)
-        self.driver.find_element_by_xpath(WhatsAppConfig.XPATH.CHAT_AVATAR).click()
+        self.driver.find_element_by_xpath(WhatsAppConfig.XPATH.CHAT_AVATAR % user_name).click()
         time.sleep(SLEEP_TIME)
+
+    def _find_text_box(self):
+        divs = self.driver.find_elements_by_tag_name("div")
+        text_box = None
+        for div in divs[::-1]:
+            if "selectable-text" in div.get_attribute("class"):
+                text_box = div
+                break
+        return text_box
 
     def send_message_text(self, content):
         self.logger.info("WhatsApp: method call send_message_text with content: %s" % content)
-        self.driver.find_element_by_xpath(WhatsAppConfig.XPATH.INPUT_MESSAGE_BODY) \
-            .send_keys(content)
+        text_box = self._find_text_box()
+        text_box.send_keys(content)
         self.driver.find_element_by_xpath(WhatsAppConfig.XPATH.BUTTON_TEXT_SEND).click()
         time.sleep(SLEEP_TIME)
 
@@ -55,7 +64,8 @@ class WhatsApp(object):
         time.sleep(SLEEP_TIME)
 
         if caption:
-            self.driver.find_element_by_xpath(WhatsAppConfig.XPATH.INPUT_MESSAGE_BODY).send_keys(caption)
+            text_box = self._find_text_box()
+            text_box.send_keys(caption)
             time.sleep(SLEEP_TIME)
 
         self.driver.find_element_by_xpath(WhatsAppConfig.XPATH.BUTTON_MEDIA_SEND).click()
