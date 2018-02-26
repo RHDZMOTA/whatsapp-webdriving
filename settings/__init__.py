@@ -1,1 +1,1 @@
-from .config import PROJECT_DIR, SLEEP_TIME, WHATSAPP_WEBPAGE, FileConf, LogConf
+from .config import PROJECT_DIR, SLEEP_TIME, INITIAL_SLEEP_TIME, WHATSAPP_WEBPAGE, FileConf, LogConf
