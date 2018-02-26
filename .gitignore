@@ -172,3 +172,5 @@ appengine-generated/
 data/
 logs/
 *.png
+
+*.swp

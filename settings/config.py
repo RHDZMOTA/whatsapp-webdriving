@@ -18,6 +18,7 @@ LOGGING_MESSAGE_FORMAT = os.environ.get("LOGGING_MESSAGE_FORMAT")
 LOGGING_DATETIME_FORMAT = os.environ.get("LOGGING_DATETIME_FORMAT")
 
 # Constants
+INITIAL_SLEEP_TIME = 7
 SLEEP_TIME = 3
 
 # Project absolute path
