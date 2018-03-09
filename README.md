@@ -44,6 +44,8 @@ Follow these instructions for first-use:
 1. Create the .env file: `cp setting/.env.example setting/.env`
 1. Run the setup script: `python setup.py`
 1. Add executable permissions to the web-driver e.g. `chmod u+rx resources/drivers/linux/chromedriver`
+    * **Note**: to avoid unexpected execution errors download the driver directly from Google:
+    https://chromedriver.storage.googleapis.com/index.html?path=2.36/
 1. Create your messages file. See example: `resources/user-messages/messages.json.example`
 
 
