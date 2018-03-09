@@ -66,8 +66,8 @@ class WhatsApp(object):
         time.sleep(SLEEP_TIME)
 
         if caption:
-            divs = self.driver.find_element_by_class_name("media-caption").find_elements_by_tag_name("div")
-            text_box = self._find_text_box(divs)
+            divs = self.driver.find_elements_by_tag_name("div")
+            text_box = self._find_text_box(divs[::-1])
             text_box.send_keys(caption)
             time.sleep(SLEEP_TIME)
 
